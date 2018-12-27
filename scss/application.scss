@@ -1,0 +1,486 @@
+@import "base/variables";
+@import "base/mixins";
+@import "base/base";
+@import "components/header";
+@import "components/footer";
+@import "components/weirdo";
+
+
+/* =================================
+  Base Element Styles
+==================================== */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font: 1em/1.5 monospace!important;
+  color: #373737;
+  background: #eaeaea;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+
+
+
+
+h3 {
+  font-family: monospace!important;
+  text-transform: uppercase;
+  font-weight: 800!important;
+}
+
+h1{
+  text-align: center;
+  font-family: monospace!important;
+  font-size: 9rem!important;
+}
+
+
+h2 {
+  text-align: center;
+  font-family: monospace!important;
+  font-size: 2rem!important;
+  color: #ffffff;
+  margin-bottom: 40px!important;
+  margin-top: 100px!important;
+  font-weight: bold!important;
+
+}
+h3 {
+  color: $orange!important;
+
+  margin-top: 0;
+  margin-bottom: .5em;
+
+  @media #{$brk-xlarge} {
+    font-size: 2.3em!important;
+    line-height: 3em;
+  }
+
+  @media #{$brk-large} {
+    font-size: 2.3em!important;
+    line-height: 3em;
+  }
+
+  @media #{$brk-medium} {
+    font-size: 2.3em!important;
+    line-height: 3em;
+  }
+
+  @media #{$brk-spnarrow} {
+    font-size: 1.8em!important;
+    line-height: 2em;
+
+  }
+
+  @media #{$brk-iphone} {
+    font-size: 1.8em!important;
+    line-height: 3em;
+  }
+}
+
+h4 {
+  font-family: monospace!important;
+  font-weight: 800!important;
+  font-size: 1em;
+}
+p {
+  font-family: monospace!important;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin: 0 0 1.5em;
+}
+
+p span {
+  background-color: white;
+}
+
+a {
+  color: #FAA61A !important;
+}
+
+.hover {
+  color: #FAA61A !important;
+}
+
+a:link {
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #FAA61A !important;
+}
+
+
+/* =================================
+  Base Layout Styles
+==================================== */
+
+/* ---- Layout Containers ---- */
+
+.main-header {
+  text-align: center;
+  padding: 2.8em 0;
+}
+.photo-container {
+  text-align: center;
+  //margin-bottom: 4em;
+}
+/* ---- Page Elements ---- */
+
+.name {
+  font-size: 1.65em;
+  font-weight: 800;
+  margin: 0 0 1.5em;
+  line-height: 1;
+}
+.name span {
+  font-weight: 300;
+  margin-left: -7px;
+}
+//.logo {
+//  width: 45px;
+//  //margin-bottom: .4em;
+//}
+.photo {
+  width:auto;
+  position: relative;
+  line-height: 0;
+  overflow: hidden;
+  margin-bottom: 3px;
+
+
+ @media only screen and #{$brk-xlarge},
+ only screen and #{$brk-large},
+ only screen and #{$brk-medium}
+ {
+   height: 50vh;
+  }
+
+  @media only screen and #{$brk-narrow}{
+  height: 35vh;
+}
+
+  @media (width: 1024px) and (height: 1366px) {
+    height: 25vh
+  }
+
+  @media #{$brk-spnarrow},
+  #{$brk-iphone} {
+    height: 100%!important;
+  }
+
+
+}
+
+.articles {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+
+img {
+  width: 100%;
+}
+
+.photo-container img {
+  width: 100%;
+  height: 100%;
+}
+.button {
+  color: #fff;
+  width: 100px;
+  height: 40px;
+  font-weight: 700;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: rgba(74,137,202, .65);
+  padding: 22px 0;
+  border-radius: .5em;
+  margin: 0;
+  position: relative;
+}
+
+/* ---- Photo Overlay ---- */
+
+.photo-overlay {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0, .65);
+}
+/* ---- Float clearfix ---- */
+
+.clearfix::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+/* =================================
+  Media Queries
+==================================== */
+
+@media (min-width: 0) and (max-width: 768px) {
+  .container {
+    padding: 0 1.225em 2.5em;
+  }
+}
+@media (min-width: 769px) {
+  .container {
+    padding: 0 2.25em 2em;
+  }
+  .photo-container {
+    //width: 48%;
+    //float: left;
+    margin-left: 4%;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .photo-container:nth-child(2n+1) {
+    margin-left: 0;
+    clear: left;
+  }
+}
+@media (min-width: 1025px) {
+  .photo-container {
+    //width: 30.63973064%;
+  }
+  .photo-container:nth-child(3n+1) {
+    margin-left: 0;
+    clear: left;
+  }
+}
+
+/* =================================
+  Photo Overlay Transition
+==================================== */
+
+.photo-overlay {
+  opacity: 1;
+  transition: 0.5s;
+}
+.photo-overlay:hover {
+  opacity: 0;
+}
+
+/* =================================
+  Button Transitions
+==================================== */
+
+.button {
+  opacity: 1;
+  transition: opacity .3s .2s, background .4s .3s, box-shadow .5s 0s;
+  transition-timing-function: ease-out;
+}
+
+.button:hover {
+  background: rgba(74, 137, 202, 1);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .7);
+}
+
+.photo-overlay:hover .button {
+  opacity: 1!important;
+}
+
+
+.button:hover .btn-icon {
+  opacity: 1;
+  left: 80%;
+}
+
+video {
+  position: relative;
+  overflow: hidden;
+
+  @media #{$brk-xlarge} {
+    min-width: 100%;
+  }
+
+  @media #{$brk-large} {
+    min-width: 100%;
+  }
+
+  @media #{$brk-medium} {
+    min-width: 100%;
+  }
+
+  @media #{$brk-spnarrow} {
+    width: 100%;
+
+
+  }
+
+  @media #{$brk-iphone} {
+    width: 100%;
+
+  }
+}
+
+
+svg {
+  width: 100%;
+}
+
+.toptop{
+  margin-top: 50px;
+}
+
+/* =================================
+  Typewriter
+==================================== */
+
+.typewriter h3 {
+  text-align: center;
+  font-size: 3rem;
+  color: #fff;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+          typing 3.5s steps(30);
+          //blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+/* =================================
+  Carousel
+==================================== */
+
+
+
+.glyphicon .glyphicon-chevron-right:before {
+  content: "▶";
+  color: grey;
+}
+
+.glyphicon .glyphicon-chevron-left:before {
+  content: "◀";
+  color: grey;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #f49908;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+
+.carousel-control {
+  width: 0!important;
+
+}
+
+.item img {
+  width:100%;
+  height: 30vh;
+  overflow: hidden;
+}
+
+
+
+
+h2.background {
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    border-top: 2px solid $orange;
+    content:"";
+    margin: 0 auto; /* this centers the line to the full width specified */
+    position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+    top: 50%; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  span {
+    /* to hide the lines from behind the text, you have to set the background color the same as the container */
+    background: #fff;
+    padding: 0 15px;
+  }
+}
+
+h2.double:before {
+  /* this is just to undo the :before styling from above */
+  border-top: none;
+}
+
+h2.double:after {
+  border-bottom: 1px solid blue;
+  -webkit-box-shadow: 0 1px 0 0 red;
+  -moz-box-shadow: 0 1px 0 0 red;
+  box-shadow: 0 1px 0 0 red;
+  content: "";
+  margin: 0 auto; /* this centers the line to the full width specified */
+  position: absolute;
+  top: 45%; left: 0; right: 0;
+  width: 95%;
+  z-index: -1;
+}
+
+.row2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.links {
+  cursor:pointer;
+}
+
+.grow {
+  transition: all .2s ease-in-out;
+  cursor:pointer;
+}
+.grow:hover { transform: scale(1.1); }
+
+
+.video-events {
+
+
+  @media only screen and #{$brk-xlarge},
+  only screen and #{$brk-large},
+  only screen and #{$brk-medium},
+  only screen and #{$brk-narrow}
+  {
+    margin-top: -250px;
+    margin-left: -500px;
+  }
+
+  //@media only screen and #{$brk-narrow}{
+  //  margin-top: 0;
+  //  margin-left: 0;
+  //}
+
+  @media #{$brk-spnarrow},
+  #{$brk-iphone} {
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
